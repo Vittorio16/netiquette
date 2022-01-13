@@ -1,0 +1,347 @@
+// 1F1D36 3F3351 864879 E9A6A6
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
+
+//BASED
+body{
+    background-color: #1F1D36;
+    color: white;
+}
+h1,h2,h3{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: calc(1.3rem + 0.9vmin);
+}
+p,span{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: calc(0.5rem + 1vmin);
+}
+a,li{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: calc(0.4rem + .9vmin);
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    cursor: pointer;
+}
+
+// HEADER
+header{
+    background-color: #864879;
+    height: 8vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    // style logo
+    img{height: 6vh;}
+
+    // style ul
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.2rem;
+        font-weight: 600;
+        li{
+            padding: .7rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: .3s cubic-bezier(0.4, 0.25, 0.435, 0.045);
+            &:hover{
+                background-color: #E9A6A6;
+            }
+        }
+    }
+}
+
+// HOME
+#home{
+    height: 100vh;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .title-inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+        height: 12vh;
+        margin-bottom: 100px;
+        .fisso{
+            position: absolute;
+            top: 0;
+            padding: .5rem;
+        }
+        #typed{
+            padding-top: 4rem;
+            border-bottom: 5px solid #3F3351;
+            padding-bottom: .2rem;
+        }
+         .typed-cursor{display: none !important;}
+    }
+
+   /*Stile carosello*/
+   input[type=radio] { display: none; }
+   .container{
+        width: 100%;
+        max-width: 800px;
+        max-height: 60vh;
+        height: 100%;
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        // stile intere card
+        .cards {
+             position: relative;
+             width: 100%;
+             height: 100%;
+             margin-bottom: 20px;
+             .card {
+                 position: absolute;
+                 width: 60%;
+                 height: 100%;
+                 left: 0;
+                 right: 0;
+                 margin: auto;
+                 transition: transform .4s ease;
+                 cursor: pointer;
+                     img{
+                         width: 100%;
+                         height: 100%;
+                         border-radius: 10px;
+                         object-fit: cover;
+                         transition: .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    }
+            }
+        }
+
+   //Click
+#item-1:checked ~ .cards #song-3, #item-2:checked ~ .cards #song-1, #item-3:checked ~ .cards #song-2 {
+  transform: translatex(-40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-2, #item-2:checked ~ .cards #song-3, #item-3:checked ~ .cards #song-1 {
+  transform: translatex(40%) scale(.8);
+  opacity: .4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-1, #item-2:checked ~ .cards #song-2, #item-3:checked ~ .cards #song-3 {
+  transform: translatex(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+  img {box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);}
+}
+}
+
+}
+
+//SEZIONI A COMPARSA
+.comparsa{
+    width: 100%;
+    height: 100vh;
+    z-index: 100001;
+    background-color: #000000ce;
+    position: fixed;
+    left: 0;
+    top: -100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+    /*stile pulsante x*/
+    #remove{
+        position: absolute;
+        top: 1.3rem;
+        right: 1.3rem;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+
+    /*Stile contenitore*/
+    &-contain{
+        background: #ffffff;
+        width: 80%;
+        height: 80%;
+        border-radius: 4px;
+        display: none;
+        color: black;
+        align-items: center;
+        flex-direction: column;
+
+        h2{
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            padding-bottom: .4rem;
+            border-bottom: 2px solid #E9A6A6;
+        }
+
+        p{
+            margin-top: 1.5rem;
+            padding: .4rem;
+            line-height: 1.6rem;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    }
+
+    @media (max-width:768px) {
+        .comparsa-contain{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.comparsa.active{top: 0;}
+.comparsa-contain.current{display: flex;}
+
+
+// SEZIONE MANIFESTO
+.manifesto{
+    .tabella{
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        .row{
+            flex: 1;
+            background: #3F3351;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            div{
+                margin: 1rem;
+                background: #1f1d36a8;
+                padding: .8rem;
+                border-radius: 4px;
+                letter-spacing: 1px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+//SEZIONE CONSAPEVOLEZZA
+.consapevolezza{
+    .sfondo{
+        width: 100%;
+        height: 10vh;
+        background: url(/image/social.png) no-repeat right;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    //faq
+     .accordion{
+        display: flex;
+        flex-direction: column;
+        color: black;
+        .accordion-item{
+            display: flex;
+            flex-direction: column;
+            //title and icon
+            .title{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                border-bottom: 1px solid #e5e5e5;
+                a{
+                    position: relative;
+                    padding: 1rem 3rem 1rem 1rem;
+                    color: #65677E;
+                    font-weight: 600;
+                    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    &:hover{
+                        color: #65677E;
+                    }
+                }
+                i{
+                    padding: 1rem 3rem 1rem 1rem;
+                    color: #65677E;
+                }
+            }
+            //content
+            .content {
+                opacity: 0;
+                padding: 0 1rem;
+                max-height: 0;
+                border-bottom: 1px solid #e5e5e5;
+                overflow: hidden;
+                clear: both;
+                transition: all 0.2s ease 0.15s;
+              }
+        }.show{
+            color:white;
+            background-color: #864879;
+            margin: 0;
+            padding: 0;
+            .title{
+                border: none;
+                a,i{color: white !important;}
+            }
+            .content {
+                opacity: 1;
+                padding: 1rem;
+                margin: 0;
+                max-height: 100%;
+                transition: all 0.35s ease 0.15s;
+                p{
+                    font-size: calc(0.5rem + 1vmin);;
+                }
+            }
+        }
+    }
+}
+
+
+//SEZIONE ESPERIENZE
+.esperienze{
+    background: #1F1D36;
+    color: white;
+    .sfondo{
+        width: 100%;
+        height: 10vh;
+        background: url(/image/freelancer.jpg) no-repeat right;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+}
